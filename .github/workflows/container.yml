@@ -13,6 +13,9 @@ jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+      - run: npm run build
       - uses: actions/checkout@master
       - uses: shallwefootball/s3-upload-action@master
         with:
