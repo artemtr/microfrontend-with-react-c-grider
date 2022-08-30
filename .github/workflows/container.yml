@@ -17,11 +17,12 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm install
       - run: npm run build
-      - name: Upload S3
-        uses: shallwefootball/s3-upload-action@master
-        id: S3
+      - uses: jakejarvis/s3-sync-action@master
         with:
-          aws_key_id: ${{secrets.AWS_KEY_ID}}
-          aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-          aws_bucket: reat-microfrontend
-          source_dir: container/latest
+          args: --acl public-read --follow-symlinks --delete --exclude '.git/*' --exclude '.github/*'
+        env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          SOURCE_DIR: './public'
