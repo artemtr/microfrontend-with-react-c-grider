@@ -4,7 +4,7 @@ import MarketingApp from './components/MarketingApp';
 export default () => {
   return (
     <div>
-      Home page !!
+      Home page to aws
       <MarketingApp />
     </div>
   );
