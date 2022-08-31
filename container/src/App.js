@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core/styles';
 
 const generateClassName = createGenerateClassName({
-  productionPrefix: 'containerApp',
+  productionPrefix: 'App',
 });
 export default () => {
   return (
@@ -16,8 +16,8 @@ export default () => {
       <StylesProvider generateClassName={generateClassName}>
         <BrowserRouter>
           <Header />
+          <MarketingApp />
         </BrowserRouter>
-        <MarketingApp />
       </StylesProvider>
     </div>
   );
