@@ -1,11 +1,24 @@
-import * as React from 'react';
-import { mount } from 'marketing/Marketing';
+import React from 'react';
 import MarketingApp from './components/MarketingApp';
+import Header from './components/Header';
+import { BrowserRouter } from 'react-router-dom';
+import {
+  StylesProvider,
+  createGenerateClassName,
+} from '@material-ui/core/styles';
+
+const generateClassName = createGenerateClassName({
+  productionPrefix: 'containerApp',
+});
 export default () => {
   return (
     <div>
-      Home page to aws fucking work
-      <MarketingApp />
+      <StylesProvider generateClassName={generateClassName}>
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
+        <MarketingApp />
+      </StylesProvider>
     </div>
   );
 };
