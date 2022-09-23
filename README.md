@@ -1,2 +1,1 @@
-# microfrontend-with-react-grider
-Udemy course
+https://www.udemy.com/course/microfrontend-course/
